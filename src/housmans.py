@@ -4,9 +4,9 @@ import ast
 def intal():
     f = open("house.txt", "w")
     x = [
-    ["door", "1", 1, 0, "you are at the door"],5, 
-    ["hall 0", "2, 4, 5, 6, 0", 1, 0, "it is the hallway on the bottom floor"],5,
-    ["room 0-1", "1", 0, 0, "this is the first room"],5,
+    ["door", "1", 1, 0, "you are at the door"],5,
+    ["hall 0", [2, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"],5,
+    ["room 0-1", [1], 0, 0, "this is the first room"],5,
     ["stair 0-1", "1, 7", 0, 1, "it is the hallway on the bottom floor"],5,
     ["room 0-2", "1", r.randint(0,1), r.randint(0,1), "this is the 2 room"],5,       
     ["room 0-3", "1", r.randint(0,1), r.randint(0,1), "this is the 3 room"],5,
