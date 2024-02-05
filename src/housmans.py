@@ -25,3 +25,21 @@ def get_room(num):
     x = f.read()
     t = x.split(", 5,")
     return t[num]
+
+def decode(list):
+    print(list)
+    g = list
+    a = g[0]
+    b = g[1]
+    c = g[2]
+    d = g[3]
+    f = g[4]
+    
+    s = f'''
+    you are in: {a}, which is: {f}
+    you can go to: {b}
+    the light status is: {c}
+    the locked status is: {d}
+    '''
+    
+    return s
