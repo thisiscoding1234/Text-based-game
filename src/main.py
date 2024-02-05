@@ -5,7 +5,6 @@ hman.intal()
 
 print("welcome")
 ro = hman.get_room(0)
-print(ro)
 print(hman.decode(ro))
 
 while True:
