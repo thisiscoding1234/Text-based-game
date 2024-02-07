@@ -1,5 +1,5 @@
-import inputs as inp
 import housmans as hman
+import inputs as inp
 
 hman.intal()
 name = input("what is your name: ")
@@ -17,7 +17,9 @@ while True:
             continue
         if hman.get_lock(hman.get_room(rm)) == 1:
             rm = prev
-            print("Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!")
+            print(
+                "Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!"
+            )
         ro = hman.get_room(rm)
         print(hman.decode(ro, 0, prev))
         if rm == 0:
@@ -28,5 +30,5 @@ while True:
                 pass
     except IndexError:
         print("no!")
-        
+
 print(f"goodbye, {name}!")
