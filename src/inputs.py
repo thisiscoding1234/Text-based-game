@@ -1,4 +1,18 @@
 def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
+    """
+    Prompts the user to enter an integer and validates the input.
+
+    Args:
+        prompt (str): The prompt message to display to the user.
+        test (int, optional): Flag to enable testing for negative numbers. Defaults to 0.
+        maxtest (int, optional): Flag to enable testing for numbers exceeding a maximum value. Defaults to 0.
+        top (int, optional): The maximum value allowed for the input. Defaults to 0.
+        rec (int, optional): Flag to indicate if the function is being called recursively. Defaults to 0.
+
+    Returns:
+        int: The validated integer input.
+
+    """
     try:
         asd = int(input(prompt))
         c = asd
