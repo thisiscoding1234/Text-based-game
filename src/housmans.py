@@ -16,7 +16,7 @@ def intal():
     file = open("house.txt", "w")
     x = [
         room("door", [1], 1, 0, "you are at the door"),
-        room("hall 0", [2, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"),
+        room("hall 0", [2, 3, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"),
         room("room 0-1", [1], 0, 0, "this is the first room"),
         room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
         room("room 0-2", [1], r.randint(0,1), r.randint(0,1), "this is the 2 room"),
@@ -69,3 +69,8 @@ def decode(l, get_acc=0, prev=0):
     if get_acc == 1:
         s = rf.access
     return s
+
+def get_lock(l):
+    rf = eval(l)
+    c = rf.locked
+    return c
