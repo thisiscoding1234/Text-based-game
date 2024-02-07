@@ -24,8 +24,7 @@ class room:
         self.desc = desc
 
     def __repr__(self) -> str:
-        return f'room("
-    {self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
+        return f'room("{self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
 
 def intal():
     """
