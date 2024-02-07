@@ -26,8 +26,6 @@ while True:
             des = input("are you sure you want to leave? (y/n): ")
             if des == "y":
                 break
-            else:
-                pass
     except IndexError:
         print("no!")
 

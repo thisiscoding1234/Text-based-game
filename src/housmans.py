@@ -50,7 +50,8 @@ def get_room(num):
 
 
 def decode(l, get_acc=0, prev=0):
-    rf = ast.literal_eval(l)
+    print(l)
+    rf = eval(str(l))
     x = rf.desc
     i = rf.light
     c = rf.locked
@@ -76,6 +77,6 @@ def decode(l, get_acc=0, prev=0):
 
 
 def get_lock(l):
-    rf = ast.literal_eval(l)
+    rf = eval(str(l))
     c = rf.locked
     return c

@@ -1,6 +1,3 @@
-global asd = ""
-global jkl = ""
-
 def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
     try:
         asd = int(input(prompt))
