@@ -14,7 +14,7 @@ class room:
     """
 
     def __init__(
-        self, name: str, access: obj, light: int, locked: int, desc: str
+        self, name: str, access: list, light: int, locked: int, desc: str
     ) -> None:
         self.name = name
         self.access = access
@@ -133,7 +133,7 @@ def get_lock(obj):
     return rf.locked
 
 
-def get_acc(l):
+def get_acc(obj):
     """
     Returns the 'access' attribute of the given object.
 
@@ -144,7 +144,7 @@ def get_acc(l):
         The value of the 'access' attribute.
 
     """
-    rf = eval(str(l))
+    rf = eval(str(obj))
     return rf.access
 
 
