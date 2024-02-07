@@ -1,4 +1,5 @@
 import random as r
+import ast
 
 
 class room:
@@ -16,41 +17,40 @@ class room:
 
 
 def intal():
-    file = open("house.txt", "w")
-    x = [
-        room("door", [1], 1, 0, "you are at the door"),
-        room(
-            "hall 0", [2, 3, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"
-        ),
-        room("room 0-1", [1], 0, 0, "this is the first room"),
-        room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
-        room("room 0-2", [1], r.randint(0, 1), r.randint(0, 1), "this is the 2 room"),
-        room("room 0-3", [1], r.randint(0, 1), r.randint(0, 1), "this is the 3 room"),
-        room("room 0-4", [1], r.randint(0, 1), r.randint(0, 1), "this is the 4 room"),
-        room("hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"),
-        room("room 0-1", [7, 9], 0, 1, "this is the first room"),
-        room("stairs", [8, 10], 1, 1, "this is the stairs"),
-        room("End?", [9], 0, 1, "this is the End?"),
-        "",
-    ]
+    with open("house.txt", "w") as file:
+        x = [
+            room("door", [1], 1, 0, "you are at the door"),
+            room(
+                "hall 0", [2, 3, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"
+            ),
+            room("room 0-1", [1], 0, 0, "this is the first room"),
+            room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
+            room("room 0-2", [1], r.randint(0, 1), r.randint(0, 1), "this is the 2 room"),
+            room("room 0-3", [1], r.randint(0, 1), r.randint(0, 1), "this is the 3 room"),
+            room("room 0-4", [1], r.randint(0, 1), r.randint(0, 1), "this is the 4 room"),
+            room("hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"),
+            room("room 0-1", [7, 9], 0, 1, "this is the first room"),
+            room("stairs", [8, 10], 1, 1, "this is the stairs"),
+            room("End?", [9], 0, 1, "this is the End?"),
+            "",
+        ]
 
-    a = str(x)
-    t = len(str(x)) - 1
-    c = a[1:t:]
-    file.write(c)
-    file.close()
+        a = str(x)
+        t = len(str(x)) - 1
+        c = a[1:t:]
+        file.write(c)
+    return "initialized house"
 
 
 def get_room(num):
-    file = open("house.txt", "r")
-    x = file.read()
-    t = x.split(" | ,")
-    file.close()
-    return t[num]
+    with  open("house.txt", "r") as file:
+        x = file.read()
+        t = x.split(" | ,")
+        return t[num]
 
 
 def decode(l, get_acc=0, prev=0):
-    rf = eval(l)
+    rf = ast.literal_eval(l)
     x = rf.desc
     i = rf.light
     c = rf.locked
@@ -76,6 +76,6 @@ def decode(l, get_acc=0, prev=0):
 
 
 def get_lock(l):
-    rf = eval(l)
+    rf = ast.literal_eval(l)
     c = rf.locked
     return c
