@@ -1,5 +1,4 @@
 import random as r
-import ast
 
 
 class room:
@@ -8,14 +7,14 @@ class room:
 
     Attributes:
         name (str): The name of the room.
-        access (list): A list of access points to the room.
+        access (obj): A obj of access points to the room.
         light (int): The light level in the room.
         locked (int): The lock status of the room.
         desc (str): The description of the room.
     """
 
     def __init__(
-        self, name: str, access: list, light: int, locked: int, desc: str
+        self, name: str, access: obj, light: int, locked: int, desc: str
     ) -> None:
         self.name = name
         self.access = access
@@ -26,6 +25,7 @@ class room:
     def __repr__(self) -> str:
         return f'room("{self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
 
+
 def intal():
     """
     Initializes the house by creating rooms and writing them to a file.
@@ -35,39 +35,29 @@ def intal():
     """
     with open("house.txt", "w") as file:
         x = [
+            room("door", [1], 1, 0, "you are at the door"),
             room(
-                "door", [1], 1, 0, "you are at the door"
-                ),
-            room(
-                "hall 0", [2, 3, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"
+                "hall 0",
+                [2, 3, 4, 5, 6, 0],
+                1,
+                0,
+                "it is the hallway on the bottom floor",
             ),
-            room(
-                "room 0-1", [1], 0, 0, "this is the first room"
-                ),
-            room(
-                "stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"
-                ),
+            room("room 0-1", [1], 0, 0, "this is the first room"),
+            room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
             room(
                 "room 0-2", [1], r.randint(0, 1), r.randint(0, 1), "this is the 2 room"
-                ),
+            ),
             room(
                 "room 0-3", [1], r.randint(0, 1), r.randint(0, 1), "this is the 3 room"
-                ),
+            ),
             room(
                 "room 0-4", [1], r.randint(0, 1), r.randint(0, 1), "this is the 4 room"
-                ),
-            room(
-                "hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"
-                ),
-            room(
-                "room 0-1", [7, 9], 0, 1, "this is the first room"
-                ),
-            room(
-                "stairs", [8, 10], 1, 1, "this is the stairs"
-                ),
-            room(
-                "End?", [9], 0, 1, "this is the End?"
-                ),
+            ),
+            room("hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"),
+            room("room 0-1", [7, 9], 0, 1, "this is the first room"),
+            room("stairs", [8, 10], 1, 1, "this is the stairs"),
+            room("End?", [9], 0, 1, "this is the End?"),
             "",
         ]
 
@@ -95,7 +85,7 @@ def get_room(num):
         return t[num]
 
 
-def decode(list):
+def decode(obj):
     """
     Decode the given input and return a formatted string describing the current location and its properties.
 
@@ -106,8 +96,8 @@ def decode(list):
     Returns:
         str: A formatted string describing the current location and its properties.
     """
-    print(list)
-    rf = eval(str(list))
+    print(obj)
+    rf = eval(str(obj))
     x = rf.desc
     i = rf.light
     c = rf.locked
@@ -128,7 +118,7 @@ def decode(list):
     return s
 
 
-def get_lock(list):
+def get_lock(obj):
     """
     Returns the 'locked' attribute of the given object.
 
@@ -139,8 +129,9 @@ def get_lock(list):
         The value of the 'locked' attribute.
 
     """
-    rf = eval(str(list))
+    rf = eval(str(obj))
     return rf.locked
+
 
 def get_acc(l):
     """
@@ -156,7 +147,8 @@ def get_acc(l):
     rf = eval(str(l))
     return rf.access
 
-def get_light(list):
+
+def get_light(obj):
     """
     Returns the 'light' attribute of the given object.
 
@@ -167,10 +159,11 @@ def get_light(list):
         The value of the 'light' attribute.
 
     """
-    rf = eval(str(list))
+    rf = eval(str(obj))
     return rf.light
 
-def get_desc(list):
+
+def get_desc(obj):
     """
     Returns the 'desc' attribute of the given object.
 
@@ -181,10 +174,11 @@ def get_desc(list):
         The value of the 'desc' attribute.
 
     """
-    rf = eval(str(list))
+    rf = eval(str(obj))
     return rf.desc
 
-def get_name(list):
+
+def get_name(obj):
     """
     Returns the 'name' attribute of the given object.
 
@@ -195,5 +189,5 @@ def get_name(list):
         The value of the 'name' attribute.
 
     """
-    rf = eval(str(list))
+    rf = eval(str(obj))
     return rf.name
