@@ -1,5 +1,5 @@
-import random as r
 import ast
+import random as r
 
 
 class room:
@@ -26,6 +26,7 @@ class room:
     def __repr__(self) -> str:
         return f'room("{self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
 
+
 def intal():
     """
     Initializes the house by creating rooms and writing them to a file.
@@ -35,39 +36,29 @@ def intal():
     """
     with open("house.txt", "w") as file:
         x = [
+            room("door", [1], 1, 0, "you are at the door"),
             room(
-                "door", [1], 1, 0, "you are at the door"
-                ),
-            room(
-                "hall 0", [2, 3, 4, 5, 6, 0], 1, 0, "it is the hallway on the bottom floor"
+                "hall 0",
+                [2, 3, 4, 5, 6, 0],
+                1,
+                0,
+                "it is the hallway on the bottom floor",
             ),
-            room(
-                "room 0-1", [1], 0, 0, "this is the first room"
-                ),
-            room(
-                "stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"
-                ),
+            room("room 0-1", [1], 0, 0, "this is the first room"),
+            room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
             room(
                 "room 0-2", [1], r.randint(0, 1), r.randint(0, 1), "this is the 2 room"
-                ),
+            ),
             room(
                 "room 0-3", [1], r.randint(0, 1), r.randint(0, 1), "this is the 3 room"
-                ),
+            ),
             room(
                 "room 0-4", [1], r.randint(0, 1), r.randint(0, 1), "this is the 4 room"
-                ),
-            room(
-                "hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"
-                ),
-            room(
-                "room 0-1", [7, 9], 0, 1, "this is the first room"
-                ),
-            room(
-                "stairs", [8, 10], 1, 1, "this is the stairs"
-                ),
-            room(
-                "End?", [9], 0, 1, "this is the End?"
-                ),
+            ),
+            room("hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"),
+            room("room 0-1", [7, 9], 0, 1, "this is the first room"),
+            room("stairs", [8, 10], 1, 1, "this is the stairs"),
+            room("End?", [9], 0, 1, "this is the End?"),
             "",
         ]
 
@@ -142,6 +133,7 @@ def get_lock(list):
     rf = eval(str(list))
     return rf.locked
 
+
 def get_acc(l):
     """
     Returns the 'access' attribute of the given object.
@@ -155,6 +147,7 @@ def get_acc(l):
     """
     rf = eval(str(l))
     return rf.access
+
 
 def get_light(list):
     """
@@ -170,6 +163,7 @@ def get_light(list):
     rf = eval(str(list))
     return rf.light
 
+
 def get_desc(list):
     """
     Returns the 'desc' attribute of the given object.
@@ -183,6 +177,7 @@ def get_desc(list):
     """
     rf = eval(str(list))
     return rf.desc
+
 
 def get_name(list):
     """
