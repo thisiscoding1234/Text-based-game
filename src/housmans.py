@@ -98,7 +98,7 @@ def decode(obj):
         str: A formatted string describing the current location and its properties.
     """
     print(obj)
-    rf = ast.literal_eval(str(obj))
+    rf = eval(str(obj))
     x = rf.desc
     i = rf.light
     c = rf.locked
@@ -130,7 +130,7 @@ def get_lock(obj):
         The value of the 'locked' attribute.
 
     """
-    rf = ast.literal_eval(str(obj))
+    rf = eval(str(obj))
     return rf.locked
 
 
@@ -145,7 +145,7 @@ def get_acc(obj):
         The value of the 'access' attribute.
 
     """
-    rf = ast.literal_eval(str(obj))
+    rf = eval(str(obj))
     return rf.access
 
 
@@ -160,7 +160,7 @@ def get_light(obj):
         The value of the 'light' attribute.
 
     """
-    rf = ast.literal_eval(str(obj))
+    rf = eval(str(obj))
     return rf.light
 
 
@@ -175,7 +175,7 @@ def get_desc(obj):
         The value of the 'desc' attribute.
 
     """
-    rf = ast.literal_eval(str(obj))
+    rf = eval(str(obj))
     return rf.desc
 
 
@@ -190,5 +190,5 @@ def get_name(obj):
         The value of the 'name' attribute.
 
     """
-    rf = ast.literal_eval(str(obj))
+    rf = eval(str(obj))
     return rf.name
