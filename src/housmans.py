@@ -33,7 +33,7 @@ def intal():
     Returns:
         str: A message indicating that the house has been initialized.
     """
-    with open("house.txt", "w") as file:
+    with open("house.txt", "w", encoding="utf-8") as file:
         x = [
             room("door", [1], 1, 0, "you are at the door"),
             room(
@@ -79,7 +79,7 @@ def get_room(num):
         str: The room at the specified index.
 
     """
-    with open("house.txt", "r") as file:
+    with open("house.txt", "r", encoding="utf-8") as file:
         x = file.read()
         t = x.split(" | ,")
         return t[num]
@@ -87,16 +87,14 @@ def get_room(num):
 
 def decode(obj):
     """
-    Decode the given input and return a formatted string describing the current location and its properties.
+    Decode input, return a formatted string describing location.    
+        Args:
+            l (object): The input object to decode.
+            prev (int, optional): The previous value. Defaults to 0.
 
-    Args:
-        l (object): The input object to decode.
-        prev (int, optional): The previous value. Defaults to 0.
-
-    Returns:
-        str: A formatted string describing the current location and its properties.
+        Returns:
+            str: A formatted string describing the current location and its properties.
     """
-    print(obj)
     rf = eval(str(obj))
     x = rf.desc
     i = rf.light

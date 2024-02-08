@@ -1,12 +1,16 @@
 cd src
-read debug
-if [ "$debug" == "debug"] ;
+read input
+if [ "$input" == "d" ] ;
 then 
+    clear
     python3 main.py -d
-elif [ "$debug" == "custom" ]; 
+elif [ "$input" == "c" ]; 
 then
+    clear
     python3 main.py -c
+    clear
 else
+    clear
     python3 main.py
     clear
 fi

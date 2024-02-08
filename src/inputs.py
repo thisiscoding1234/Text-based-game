@@ -5,9 +5,8 @@ def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
     Args:
         prompt (str): The prompt message to display to the user.
         test (int, optional): Flag to enable testing for negative numbers. Defaults to 0.
-        maxtest (int, optional): Flag to enable testing for numbers exceeding a maximum value. Defaults to 0.
+        maxtest (int, optional): Flag to enable testing for numbers exceeding a max value. Defaults to 0.
         top (int, optional): The maximum value allowed for the input. Defaults to 0.
-        rec (int, optional): Flag to indicate if the function is being called recursively. Defaults to 0.
 
     Returns:
         int: The validated integer input.
@@ -29,7 +28,7 @@ def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
             if rec == 0:
                 jkl = (
                     prompt
-                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). it should also be posotive.  "
+                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). it should also be positive.  "
                 )
             intinput(jkl, test, maxtest, top, 1)
     elif maxtest == 1:
@@ -37,7 +36,7 @@ def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
             if rec == 0:
                 jkl = (
                     prompt
-                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). it should also be posotive.  it should be less than "
+                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). it should also be positive.  it should be less than "
                     + top
                 )
             intinput(jkl, test, maxtest, top, 1)
