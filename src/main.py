@@ -16,7 +16,6 @@ if args.debug is True:
 elif args.custom is True:
     print("Custom mode is on!")
 
-
 if args.custom is False:
     hman.intal()
 name = input("what is your name: ")
