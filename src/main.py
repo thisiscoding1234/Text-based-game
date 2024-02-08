@@ -1,13 +1,14 @@
+import argparse
+
 import housmans as hman
 import inputs as inp
-import argparse
 
 print("V 0.1.1α")
 
-parser = argparse.ArgumentParser(prog='Text-Based-Game')
+parser = argparse.ArgumentParser(prog="Text-Based-Game")
 
-parser.add_argument('-d', '--debug', action='store_true')
-parser.add_argument('-c', '--custom', action='store_true')
+parser.add_argument("-d", "--debug", action="store_true")
+parser.add_argument("-c", "--custom", action="store_true")
 args = parser.parse_args()
 
 if args.debug is True:
