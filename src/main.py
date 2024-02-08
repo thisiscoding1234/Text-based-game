@@ -43,6 +43,6 @@ while True:
             if des == "y":
                 break
     except IndexError:
-        print("no!")
+        print("No that is not a room!")
 
 print(f"goodbye, {name}!")
