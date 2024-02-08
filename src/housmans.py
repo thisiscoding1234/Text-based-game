@@ -87,7 +87,7 @@ def get_room(num):
 
 def decode(obj):
     """
-    Decode input, return a formatted string describing location.    
+    Decode input, return a formatted string describing location.
         Args:
             l (object): The input object to decode.
             prev (int, optional): The previous value. Defaults to 0.
