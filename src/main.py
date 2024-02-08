@@ -11,9 +11,9 @@ parser.add_argument("-d", "--debug", action="store_true")
 parser.add_argument("-c", "--custom", action="store_true")
 args = parser.parse_args()
 
-if args.debug == True:
+if args.debug is True:
     print("Debug mode is on!")
-elif args.custom == True:
+elif args.custom is True:
     print("Custom mode is on!")
 
 
