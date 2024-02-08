@@ -1,4 +1,3 @@
-import ast
 import random as r
 
 
@@ -161,7 +160,9 @@ def get_light(obj):
 
     """
     rf = eval(str(obj))
-    return rf.light
+    if rf.light == 0:
+        f = False
+    return f
 
 
 def get_desc(obj):
