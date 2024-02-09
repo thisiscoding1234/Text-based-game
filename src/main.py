@@ -26,24 +26,36 @@ print(hman.decode(ro))
 rm = 0
 
 while True:
-    try:
-        prev = rm
-        rm = inp.intinput("room num: ", 1, 1, 10)
-        if rm not in hman.get_acc(ro):
-            print("Nice try, but you can't go there!")
-            continue
-        if hman.get_lock(hman.get_room(rm)) == 1:
-            rm = prev
-            print(
-                "Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!"
-            )
-        ro = hman.get_room(rm)
-        print(hman.decode(ro))
-        if rm == 0:
-            des = input("are you sure you want to leave? (y/n): ")
-            if des == "y":
-                break
-    except IndexError:
-        print("No that is not a room!")
-
+    cmd = input(''' 
+                Goto, inv, help.
+                What do you want to do?
+                ''')
+    if cmd == "goto":
+            try:
+                prev = rm
+                rm = inp.intinput("room num: ", 1, 1, 10)
+                if rm not in hman.get_acc(ro):
+                    print("Nice try, but you can't go there!")
+                    continue
+                if hman.get_lock(hman.get_room(rm)) == 1:
+                    rm = prev
+                    print(
+                        "Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!"
+                    )
+                ro = hman.get_room(rm)
+                print(hman.decode(ro))
+                if rm == 0:
+                    des = input("are you sure you want to leave? (y/n): ")
+                    if des == "y":
+                        break
+            except IndexError:
+                print("No that is not a room!")
+    elif cmd == "inv":
+        print(iman.get_pl())
+    elif cmd == "help":
+        print("goto: go to a room")
+        print("inv: view inventory")
+        print("help: view this message")
+    else:
+        print("I don't understand that command!")
 print(f"goodbye, {name}!")
