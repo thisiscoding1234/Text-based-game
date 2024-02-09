@@ -2,12 +2,9 @@ import random as r
 
 
 class item:
-    """
-    """
+    """ """
 
-    def __init__(
-        self, name: str, id: int, desc: str
-    ) -> None:
+    def __init__(self, name: str, id: int, desc: str) -> None:
         self.name = name
         self.id = id
         self.desc = desc
@@ -24,9 +21,7 @@ def intal():
         str: A message indicating that the house has been initialized.
     """
     with open("inv.txt", "w", encoding="utf-8") as file:
-        x = [
-            
-        ]
+        x = []
 
         a = str(x)
         t = len(str(x)) - 1
@@ -36,10 +31,7 @@ def intal():
 
 
 def get_item(num):
-    """
-
-
-    """
+    """ """
     with open("inv.txt", "r", encoding="utf-8") as file:
         x = file.read()
         t = x.split(" | ,")

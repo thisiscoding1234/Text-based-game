@@ -1,7 +1,8 @@
 import argparse
-import iteman as iman
+
 import housmans as hman
 import inputs as inp
+import iteman as iman
 
 print("V 0.1.1α")
 
