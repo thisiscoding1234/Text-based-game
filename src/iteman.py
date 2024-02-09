@@ -58,6 +58,7 @@ def get_pl():
             f.append(c.desc)
     return f
 
+
 def get_room(num):
     f = []
     t = get_item_list()
@@ -67,6 +68,7 @@ def get_room(num):
             f.append(c.name)
             f.append(c.desc)
     return f
+
 
 def pickup(l, id):
     return l[id]
