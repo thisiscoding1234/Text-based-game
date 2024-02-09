@@ -69,4 +69,4 @@ def get_room(num):
     return f
 
 def pickup(l, id):
-    
+    return l[id]
