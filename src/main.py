@@ -1,5 +1,5 @@
 import argparse
-
+import iteman as iman
 import housmans as hman
 import inputs as inp
 
@@ -18,6 +18,7 @@ elif args.custom is True:
 
 if args.custom is False:
     hman.intal()
+    iman.intal()
 name = input("what is your name: ")
 print(f"welcome, {name}!")
 ro = hman.get_room(0)
