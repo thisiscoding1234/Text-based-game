@@ -1,6 +1,7 @@
 """ this is the manager instance for the house """
 
 import random as r
+
 import iteman as iman
 
 
@@ -160,10 +161,10 @@ def get_light(obj):
         The value of the 'light' attribute.
 
     """
-    sd = iman.get_player_list() 
+    sd = iman.get_player_list()
     sety = set(sd)
     rf = eval(str(obj))
-    flash = "torch" in sety 
+    flash = "torch" in sety
     if rf.light == 0 and flash is False:
         f = False
     else:
