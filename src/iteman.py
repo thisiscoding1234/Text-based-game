@@ -65,6 +65,7 @@ def get_item_list():
         t = x.split(" ,")
         return t
 
+
 def get_player_list():
     """
     Retrieves the player list from the 'inv.txt' file.
