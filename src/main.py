@@ -3,7 +3,7 @@ import iteman as iman
 import housmans as hman
 import inputs as inp
 
-print("V 0.1.1α")
+print("V 0.1.1β")
 
 parser = argparse.ArgumentParser(prog="Text-Based-Game")
 
@@ -27,34 +27,40 @@ rm = 0
 
 while True:
     cmd = input(''' 
-                Goto, inv, help.
-                What do you want to do?
-                ''')
+Goto, inv, help, look.
+What do you want to do?
+''')
     if cmd == "goto":
-            try:
-                prev = rm
-                rm = inp.intinput("room num: ", 1, 1, 10)
-                if rm not in hman.get_acc(ro):
-                    print("Nice try, but you can't go there!")
-                    continue
-                if hman.get_lock(hman.get_room(rm)) == 1:
-                    rm = prev
-                    print(
-                        "Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!"
-                    )
-                ro = hman.get_room(rm)
-                print(hman.decode(ro))
-                if rm == 0:
-                    des = input("are you sure you want to leave? (y/n): ")
-                    if des == "y":
-                        break
-            except IndexError:
-                print("No that is not a room!")
+        try:
+            prev = rm
+            rm = inp.intinput("room num: ", 1, 1, 10)
+            if rm not in hman.get_acc(ro):
+                print("Nice try, but you can't go there!")
+                continue
+            if hman.get_lock(hman.get_room(rm)) == 1:
+                rm = prev
+                print(
+                    "Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!"
+                )
+            ro = hman.get_room(rm)
+            print(hman.decode(ro))
+            if rm == 0:
+                des = input("are you sure you want to leave? (y/n): ")
+                if des == "y":
+                    break
+        except IndexError:
+            print("No that is not a room!")
     elif cmd == "inv":
-        print(iman.get_pl())
+        print(iman.get_player_list())
+    elif cmd == "look":
+        if hman.get_light(ro) == 0:
+            print("The room is dark")
+        else:
+            print(iman.get_room(rm))
     elif cmd == "help":
         print("goto: go to a room")
         print("inv: view inventory")
+        print("look: look around the room")
         print("help: view this message")
     else:
         print("I don't understand that command!")

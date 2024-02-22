@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 src/house.txt
 src/inv.txt
+src/h-inv.txt

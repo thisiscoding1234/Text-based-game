@@ -1,72 +1,94 @@
-import random as r
-
-
 class item:
     """ """
 
-    def __init__(self, name: str, id: int, loc: int, desc: str) -> None:
+    def __init__(self, name: str, loc: int, desc: str) -> None:
         self.name = name
-        self.id = id
+        self.loc = loc
         self.desc = desc
 
     def __repr__(self) -> str:
-        return f'item("{self.name}", {self.id}, "{self.desc}") | '
+        return f'item("{self.name}", {self.loc}, "{self.desc}") '
 
 
 def intal():
     """
-    Initializes the house by creating rooms and writing them to a file.
+    Initializes the house by creating items in rooms and player's inventory and writing them to a file.
 
     Returns:
         str: A message indicating that the house has been initialized.
     """
-    with open("inv.txt", "w", encoding="utf-8") as file:
+    with open("h-inv.txt", "w", encoding="utf-8") as file:
         x = [
-            item("key", 1, 2, "a key..."),
-            item("key", 2, 4, "a key..."),
-            item("key", 3, 5, "a key..."),
-            item("key", 4, 6, "a key..."),
-            item("Audio tape", 5, 8, "a audio tape..."),
-            item("key", 6, 8, "a key..."),
-            item("s", 7, 8, "a d..."),
-            item("d", 8, 2, "a d..."),
-            item("f", 9, 2, "a d..."),
-            item("v", 10, 2, "a d..."),
+            item("key", 1, "a key..."),
+            item("key", 2, "a key..."),
+            item("key", 3, "a key..."),
+            item("key", 4, "a key..."),
+            item("Audio tape", 5, "a audio tape..."),
+            item("key", 6, "a key..."),
+            item("s", 7, "a d..."),
+            item("d", 8, "a d..."),
+            item("f", 9, "a d..."),
+            item("v", 10, "a d..."),
         ]
 
         a = str(x)
         t = len(str(x)) - 1
         c = a[1:t:]
         file.write(c)
+        with open("inv.txt", "w", encoding="utf-8") as file:
+            x = [
+                item("torch", -1, "a torch..."),
+            ]
+            a = str(x)
+            t = len(str(x)) - 1
+            c = a[1:t:]
+            file.write(c)
     return "initialized house"
 
 
 def get_item_list():
+    with open("h-inv.txt", "r", encoding="utf-8") as file:
+        x = file.read()
+        t = x.split(" ,")
+        return t
+
+def get_player_list():
     with open("inv.txt", "r", encoding="utf-8") as file:
         x = file.read()
-        t = x.split(" | ,")
+        t = x.split(" ,")
         return t
 
 
-def get_pl():
-    f = []
-    t = get_item_list()
-    for x in t:
-        c = eval(x)
-        if c.loc == -1:
-            f.append(c.name)
-            f.append(c.desc)
-    return f
-
 def get_room(num):
     f = []
+    v = []
     t = get_item_list()
     for x in t:
         c = eval(x)
         if c.loc == num:
             f.append(c.name)
             f.append(c.desc)
-    return f
+            v.append(f)
+        f = []
+    return v
 
-def pickup(l, id):
-    return l[id]
+def pickup(l):
+    t = get_item_list()
+    p = get_player_list()
+    for x in t:
+        c = eval(x)
+        if c.name == l:
+            p.append(c)
+            t.remove(x)
+            with open("h-inv.txt", "w", encoding="utf-8") as file:
+                a = str(t)
+                t = len(str(t)) - 1
+                c = a[1:t:]
+                file.write(c)
+            with open("inv.txt", "w", encoding="utf-8") as file:
+                a = str(p)
+                t = len(str(p)) - 1
+                c = a[1:t:]
+                file.write(c)
+            return f"you picked up the {l}"
+    return "item not found"

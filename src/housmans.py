@@ -110,8 +110,8 @@ def decode(obj):
         pass
 
     s = f"""
-    you are in: {loc}, which is: {x}
-    you can go to: {rf.access}
+you are in: {loc}, which is: {x}
+you can go to: {rf.access}
     """
     return s
 
@@ -160,6 +160,8 @@ def get_light(obj):
     rf = eval(str(obj))
     if rf.light == 0:
         f = False
+    else:
+        f = True
     return f
 
 
