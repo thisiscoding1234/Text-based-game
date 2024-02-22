@@ -52,6 +52,7 @@ def get_item_list():
         t = x.split(" ,")
         return t
 
+
 def get_player_list():
     with open("inv.txt", "r", encoding="utf-8") as file:
         x = file.read()
@@ -71,6 +72,7 @@ def get_room(num):
             v.append(f)
         f = []
     return v
+
 
 def pickup(l):
     t = get_item_list()
