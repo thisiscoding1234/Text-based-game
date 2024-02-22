@@ -2,6 +2,7 @@ import argparse
 import iteman as iman
 import housmans as hman
 import inputs as inp
+import time as t
 
 print("V 0.1.1β")
 
@@ -27,7 +28,7 @@ rm = 0
 
 while True:
     cmd = input(''' 
-Goto, inv, help, look, pickup.
+goto, inv, help, look, pickup, exit.
 What do you want to do?
 ''')
     if cmd == "goto":
@@ -69,6 +70,11 @@ What do you want to do?
         print("look: look around the room")
         print("help: view this message")
         print("pickup: pick up an item")
+        print("exit: exit the game")
+    elif cmd == "exit":
+        break
     else:
         print("I don't understand that command!")
 print(f"goodbye, {name}!")
+if args.debug is False:
+    t.sleep(5)

@@ -8,7 +8,9 @@ elif [ "$input" == "c" ];
 then
     clear
     python3 main.py -c
+    clear
 else
     clear
     python3 main.py
+    clear
 fi
