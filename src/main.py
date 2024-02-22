@@ -1,6 +1,4 @@
-"""
-this is the main file for the text based game.
-"""
+""" this is the main file for the text based game. """
 
 import argparse
 import time as t
