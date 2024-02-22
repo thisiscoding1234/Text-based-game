@@ -1,5 +1,12 @@
 class item:
-    """ """
+    """
+    Represents an item in the game.
+
+    Attributes:
+        name (str): The name of the item.
+        loc (int): The location of the item.
+        desc (str): The description of the item.
+    """
 
     def __init__(self, name: str, loc: int, desc: str) -> None:
         self.name = name
@@ -12,7 +19,7 @@ class item:
 
 def intal():
     """
-    Initializes the house by creating items in rooms and player's inventory and writing them to a file.
+    Initializes the inventory files with default items.
 
     Returns:
         str: A message indicating that the house has been initialized.
@@ -23,7 +30,7 @@ def intal():
             item("key", 2, "a key..."),
             item("key", 3, "a key..."),
             item("key", 4, "a key..."),
-            item("Audio tape", 5, "a audio tape..."),
+            item("Audio tape", 5, "an audio tape..."),
             item("key", 6, "a key..."),
             item("s", 7, "a d..."),
             item("d", 8, "a d..."),
@@ -47,12 +54,24 @@ def intal():
 
 
 def get_item_list():
+    """
+    Retrieves a list of items from the 'h-inv.txt' file.
+
+    Returns:
+        list: A list of items.
+    """
     with open("h-inv.txt", "r", encoding="utf-8") as file:
         x = file.read()
         t = x.split(" ,")
         return t
 
 def get_player_list():
+    """
+    Retrieves the player list from the 'inv.txt' file.
+
+    Returns:
+        list: A list containing the player items.
+    """
     with open("inv.txt", "r", encoding="utf-8") as file:
         x = file.read()
         t = x.split(" ,")
@@ -60,6 +79,15 @@ def get_player_list():
 
 
 def get_room(num):
+    """
+    Retrieve the items in a specific room.
+
+    Args:
+        num (int): The room number.
+
+    Returns:
+        list: A list of lists containing the name and description of each item in the room.
+    """
     f = []
     v = []
     t = get_item_list()
@@ -72,12 +100,22 @@ def get_room(num):
         f = []
     return v
 
-def pickup(l):
+
+def pickup(b):
+    """
+    Adds the specified item to the player's inventory and removes it from the item list.
+
+    Args:
+        l (str): The name of the item to be picked up.
+
+    Returns:
+        str: A message indicating whether the item was successfully picked up or not.
+    """
     t = get_item_list()
     p = get_player_list()
     for x in t:
         c = eval(x)
-        if c.name == l:
+        if c.name == b:
             p.append(c)
             t.remove(x)
             with open("h-inv.txt", "w", encoding="utf-8") as file:
@@ -90,5 +128,5 @@ def pickup(l):
                 t = len(str(p)) - 1
                 c = a[1:t:]
                 file.write(c)
-            return f"you picked up the {l}"
+            return f"you picked up the {b}!"
     return "item not found"
