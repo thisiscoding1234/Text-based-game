@@ -1,6 +1,4 @@
-"""
-this is the manager for the inventories in the game
-"""
+""" this is the manager for the inventories in the game """
 
 
 class Item:

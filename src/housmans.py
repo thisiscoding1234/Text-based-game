@@ -1,6 +1,4 @@
-"""
-this is the manager instance for the house
-"""
+""" this is the manager instance for the house """
 
 import random as r
 

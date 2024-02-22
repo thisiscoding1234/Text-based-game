@@ -1,6 +1,4 @@
-"""
-This module is used to force the user to enter an integer
-"""
+""" This module is used to force the user to enter an integer """
 
 
 def intinput(prompt, test=0, maximum=0, top=0, rec=0):
