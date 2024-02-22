@@ -4,9 +4,10 @@ this is the main file for the text based game.
 
 import argparse
 import time as t
-import iteman as i_man
+
 import housmans as h_man
 import inputs as inp
+import iteman as i_man
 
 print("V 0.1.1β")
 
