@@ -34,7 +34,7 @@ while True:
         """
 goto, inv, help, look, pickup, exit.
 What do you want to do?
-"""
+        """
     )
     if cmd == "goto":
         try:

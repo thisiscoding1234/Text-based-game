@@ -17,7 +17,7 @@ class Item:
         self.desc = desc
 
     def __repr__(self) -> str:
-        return f'item("{self.name}", {self.loc}, "{self.desc}") '
+        return f'Item("{self.name}", {self.loc}, "{self.desc}") '
 
 
 def initialise():

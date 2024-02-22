@@ -1,6 +1,7 @@
 """ this is the manager instance for the house """
 
 import random as r
+import iteman as iman
 
 
 class Room:
@@ -25,7 +26,7 @@ class Room:
         self.desc = desc
 
     def __repr__(self) -> str:
-        return f'room("{self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
+        return f'Room("{self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
 
 
 def initialise():
@@ -159,8 +160,11 @@ def get_light(obj):
         The value of the 'light' attribute.
 
     """
+    sd = iman.get_player_list() 
+    sety = set(sd)
     rf = eval(str(obj))
-    if rf.light == 0:
+    flash = "torch" in sety 
+    if rf.light == 0 and flash is False:
         f = False
     else:
         f = True
