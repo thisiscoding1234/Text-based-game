@@ -1,4 +1,9 @@
-class item:
+"""
+this is the manager for the inventories in the game
+"""
+
+
+class Item:
     """
     Represents an item in the game.
 
@@ -17,7 +22,7 @@ class item:
         return f'item("{self.name}", {self.loc}, "{self.desc}") '
 
 
-def intal():
+def initialise():
     """
     Initializes the inventory files with default items.
 
@@ -26,16 +31,16 @@ def intal():
     """
     with open("h-inv.txt", "w", encoding="utf-8") as file:
         x = [
-            item("key", 1, "a key..."),
-            item("key", 2, "a key..."),
-            item("key", 3, "a key..."),
-            item("key", 4, "a key..."),
-            item("Audio tape", 5, "an audio tape..."),
-            item("key", 6, "a key..."),
-            item("s", 7, "a d..."),
-            item("d", 8, "a d..."),
-            item("f", 9, "a d..."),
-            item("v", 10, "a d..."),
+            Item("key", 1, "a key..."),
+            Item("key", 2, "a key..."),
+            Item("key", 3, "a key..."),
+            Item("key", 4, "a key..."),
+            Item("Audio tape", 5, "an audio tape..."),
+            Item("key", 6, "a key..."),
+            Item("s", 7, "a d..."),
+            Item("d", 8, "a d..."),
+            Item("f", 9, "a d..."),
+            Item("v", 10, "a d..."),
         ]
 
         a = str(x)
@@ -44,7 +49,7 @@ def intal():
         file.write(c)
         with open("inv.txt", "w", encoding="utf-8") as file:
             x = [
-                item("torch", -1, "a torch..."),
+                Item("torch", -1, "a torch..."),
             ]
             a = str(x)
             t = len(str(x)) - 1
@@ -64,6 +69,7 @@ def get_item_list():
         x = file.read()
         t = x.split(" ,")
         return t
+
 
 def get_player_list():
     """

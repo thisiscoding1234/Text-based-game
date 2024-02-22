@@ -1,8 +1,12 @@
+"""
+this is the main file for the text based game.
+"""
+
 import argparse
-import iteman as iman
-import housmans as hman
-import inputs as inp
 import time as t
+import iteman as i_man
+import housmans as h_man
+import inputs as inp
 
 print("V 0.1.1β")
 
@@ -18,50 +22,52 @@ elif args.custom is True:
     print("Custom mode is on!")
 
 if args.custom is False:
-    hman.intal()
-    iman.intal()
+    h_man.initialise()
+    i_man.initialise()
 name = input("what is your name: ")
 print(f"welcome, {name}!")
-ro = hman.get_room(0)
-print(hman.decode(ro))
-rm = 0
+ro = h_man.get_room(0)
+print(h_man.decode(ro))
+RM = 0
 
 while True:
-    cmd = input(''' 
+    cmd = input(
+        """
 goto, inv, help, look, pickup, exit.
 What do you want to do?
-''')
+"""
+    )
     if cmd == "goto":
         try:
-            prev = rm
-            rm = inp.intinput("room num: ", 1, 1, 10)
-            if rm not in hman.get_acc(ro):
+            PRE = RM
+            RM = inp.intinput("room num: ", 1, 1, 10)
+            if RM not in h_man.get_acc(ro):
                 print("Nice try, but you can't go there!")
                 continue
-            if hman.get_lock(hman.get_room(rm)) == 1:
-                rm = prev
+            if h_man.get_lock(h_man.get_room(RM)) == 1:
+                RM = PRE
                 print(
                     "You can't go there, the room is locked! Try to find a key for it!"
                 )
-            ro = hman.get_room(rm)
-            print(hman.decode(ro))
-            if rm == 0:
+            ro = h_man.get_room(RM)
+            print(h_man.decode(ro))
+            if RM == 0:
                 des = input("are you sure you want to leave? (y/n): ")
                 if des == "y":
                     break
         except IndexError:
             print("No that is not a room!")
     elif cmd == "inv":
-        print(iman.get_player_list())
+        print(i_man.get_player_list())
     elif cmd == "look":
-        if hman.get_light(ro) == 0:
+        if h_man.get_light(ro) == 0:
             print("The room is dark")
         else:
-            print(iman.get_room(rm))
+            print(i_man.get_room(RM))
     elif cmd == "pickup":
         item = input("item: ")
-        if item in iman.get_room(rm):
-            iman.pickup(item)
+        if item in i_man.get_room(RM):
+            i_man.pickup(item)
         else:
             print("That item is not in this room!")
     elif cmd == "help":

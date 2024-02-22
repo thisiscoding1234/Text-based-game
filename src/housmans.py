@@ -1,7 +1,11 @@
+"""
+this is the manager instance for the house
+"""
+
 import random as r
 
 
-class room:
+class Room:
     """
     A class representing a room in the game.
 
@@ -26,7 +30,7 @@ class room:
         return f'room("{self.name}", {self.access}, {self.light}, {self.locked}, "{self.desc}") | '
 
 
-def intal():
+def initialise():
     """
     Initializes the house by creating rooms and writing them to a file.
 
@@ -35,29 +39,29 @@ def intal():
     """
     with open("house.txt", "w", encoding="utf-8") as file:
         x = [
-            room("door", [1], 1, 0, "you are at the door"),
-            room(
+            Room("door", [1], 1, 0, "you are at the door"),
+            Room(
                 "hall 0",
                 [2, 3, 4, 5, 6, 0],
                 1,
                 0,
                 "it is the hallway on the bottom floor",
             ),
-            room("room 0-1", [1], 0, 0, "this is the first room"),
-            room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
-            room(
+            Room("room 0-1", [1], 0, 0, "this is the first room"),
+            Room("stair 0-1", [1, 7], 0, 1, "it is the hallway on the bottom floor"),
+            Room(
                 "room 0-2", [1], r.randint(0, 1), r.randint(0, 1), "this is the 2 room"
             ),
-            room(
+            Room(
                 "room 0-3", [1], r.randint(0, 1), r.randint(0, 1), "this is the 3 room"
             ),
-            room(
+            Room(
                 "room 0-4", [1], r.randint(0, 1), r.randint(0, 1), "this is the 4 room"
             ),
-            room("hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"),
-            room("room 0-1", [7, 9], 0, 1, "this is the first room"),
-            room("stairs", [8, 10], 1, 1, "this is the stairs"),
-            room("End?", [9], 0, 1, "this is the End?"),
+            Room("hall 1", [8, 3], 1, 0, "this is the hallway on the first floor"),
+            Room("room 0-1", [7, 9], 0, 1, "this is the first room"),
+            Room("stairs", [8, 10], 1, 1, "this is the stairs"),
+            Room("End?", [9], 0, 1, "this is the End?"),
             "",
         ]
 
