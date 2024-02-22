@@ -28,8 +28,8 @@ def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
             if rec == 0:
                 jkl = (
                     prompt
-                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). " + 
-                    "it should also be positive.  "
+                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). "
+                    + "it should also be positive.  "
                 )
             intinput(jkl, test, maxtest, top, 1)
     elif maxtest == 1:
@@ -37,8 +37,8 @@ def intinput(prompt, test=0, maxtest=0, top=0, rec=0):
             if rec == 0:
                 jkl = (
                     prompt
-                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). " +
-                    "it should also be positive.  it should be less than "
+                    + ". please enter a whole number with out any letters around or any symbols or units. it should be in arabic numeral digits (0123456789). "
+                    + "it should also be positive.  it should be less than "
                     + top
                 )
             intinput(jkl, test, maxtest, top, 1)
