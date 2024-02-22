@@ -41,7 +41,7 @@ What do you want to do?
             if hman.get_lock(hman.get_room(rm)) == 1:
                 rm = prev
                 print(
-                    "Nice try, but you can't go there, as the room is locked. Try and find a key to unlock it!"
+                    "You can't go there, the room is locked! Try to find a key for it!"
                 )
             ro = hman.get_room(rm)
             print(hman.decode(ro))
