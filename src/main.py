@@ -1,8 +1,9 @@
 import argparse
-import iteman as iman
+import time as t
+
 import housmans as hman
 import inputs as inp
-import time as t
+import iteman as iman
 
 print("V 0.1.1β")
 
@@ -27,10 +28,12 @@ print(hman.decode(ro))
 rm = 0
 
 while True:
-    cmd = input(''' 
+    cmd = input(
+        """ 
 goto, inv, help, look, pickup, exit.
 What do you want to do?
-''')
+"""
+    )
     if cmd == "goto":
         try:
             prev = rm
