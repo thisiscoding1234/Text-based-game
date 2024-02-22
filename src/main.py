@@ -27,7 +27,7 @@ rm = 0
 
 while True:
     cmd = input(''' 
-Goto, inv, help, look.
+Goto, inv, help, look, pickup.
 What do you want to do?
 ''')
     if cmd == "goto":
@@ -57,11 +57,18 @@ What do you want to do?
             print("The room is dark")
         else:
             print(iman.get_room(rm))
+    elif cmd == "pickup":
+        item = input("item: ")
+        if item in iman.get_room(rm):
+            iman.pickup(item)
+        else:
+            print("That item is not in this room!")
     elif cmd == "help":
         print("goto: go to a room")
         print("inv: view inventory")
         print("look: look around the room")
         print("help: view this message")
+        print("pickup: pick up an item")
     else:
         print("I don't understand that command!")
 print(f"goodbye, {name}!")
