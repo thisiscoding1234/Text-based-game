@@ -1,5 +1,6 @@
 import threading
 
+
 def wrapped(timeout):
     user_input = None
 
@@ -16,6 +17,7 @@ def wrapped(timeout):
         return None
 
     return user_input
+
 
 def timed():
     user_input = wrapped(5)  # Wait for 5 seconds for user input

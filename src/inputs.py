@@ -3,6 +3,7 @@
 import threading as th
 import time as t
 
+
 def intinput(prompt, test=0, maximum=0, top=0, rec=0):
     """
     Prompts the user to enter an integer and validates the input.
@@ -55,4 +56,3 @@ def intinput(prompt, test=0, maximum=0, top=0, rec=0):
             intinput(jkl, test, maximum, top, 1)
     c = asd
     return c
-

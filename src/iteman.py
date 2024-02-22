@@ -1,5 +1,6 @@
 """ this is the manager for the inventories in the game """
 
+
 class Item:
     """
     Represents an item in the game.
@@ -134,6 +135,7 @@ def pickup(b):
                 file.write(c)
             return f"you picked up the {b}!"
     return "item not found"
+
 
 def drop(b, room):
     """
