@@ -59,6 +59,17 @@ def get_player_list():
         return t
 
 
+def get_pl():
+    f = []
+    t = get_item_list()
+    for x in t:
+        c = eval(x)
+        if c.loc == -1:
+            f.append(c.name)
+            f.append(c.desc)
+    return f
+
+
 def get_room(num):
     f = []
     v = []
