@@ -1,6 +1,5 @@
 """ this is the manager for the inventories in the game """
 
-
 class Item:
     """
     Represents an item in the game.
@@ -96,6 +95,7 @@ def get_room(num):
     v = []
     t = get_item_list()
     for x in t:
+        print(x)
         c = eval(x)
         if c.loc == num:
             f.append(c.name)
@@ -110,7 +110,7 @@ def pickup(b):
     Adds the specified item to the player's inventory and removes it from the item list.
 
     Args:
-        l (str): The name of the item to be picked up.
+        b (str): The name of the item to be picked up.
 
     Returns:
         str: A message indicating whether the item was successfully picked up or not.
@@ -133,4 +133,36 @@ def pickup(b):
                 c = a[1:t:]
                 file.write(c)
             return f"you picked up the {b}!"
+    return "item not found"
+
+def drop(b, room):
+    """
+    Removes the specified item from the player's inventory and adds it to the item list.
+
+    Args:
+        b (str): The name of the item to be dropped.
+        room (int): The room number.
+
+    Returns:
+        str: A message indicating whether the item was successfully dropped or not.
+    """
+    t = get_item_list()
+    p = get_player_list()
+    for x in p:
+        c = eval(x)
+        if c.name == b:
+            c.loc = room
+            t.append(c)
+            p.remove(x)
+            with open("h-inv.txt", "w", encoding="utf-8") as file:
+                a = str(t)
+                t = len(str(t)) - 1
+                c = a[1:t:]
+                file.write(c)
+            with open("inv.txt", "w", encoding="utf-8") as file:
+                a = str(p)
+                t = len(str(p)) - 1
+                c = a[1:t:]
+                file.write(c)
+            return f"you dropped the {b}!"
     return "item not found"

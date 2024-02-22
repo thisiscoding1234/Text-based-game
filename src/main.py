@@ -32,7 +32,7 @@ RM = 0
 while True:
     cmd = input(
         """
-goto, inv, help, look, pickup, exit.
+goto, inv, help, look, pickup, exit, drop.
 What do you want to do?
         """
     )
@@ -78,6 +78,8 @@ What do you want to do?
         print("exit: exit the game")
     elif cmd == "exit":
         break
+    elif cmd == "drop":
+        i_man.drop(input("what would you like to drop?"), RM)
     else:
         print("I don't understand that command!")
 print(f"goodbye, {name}!")
