@@ -5,8 +5,9 @@ import time as t
 import housmans as h_man
 import inputs as inp
 import iteman as i_man
+import pusman as p_man
 
-print("V 0.1.1")
+print("V 0.1.2α")
 
 parser = argparse.ArgumentParser(prog="Text-Based-Game")
 parser.add_argument("-d", "--debug", action="store_true")
@@ -78,6 +79,8 @@ What do you want to do?
         break
     elif cmd == "drop":
         i_man.drop(input("what would you like to drop?"), RM)
+    elif cmd == "puzzle":
+        print(p_man.test())
     else:
         print("I don't understand that command!")
 print(f"goodbye, {name}!")
