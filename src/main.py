@@ -2,15 +2,13 @@
 
 import argparse
 import time as t
-
 import housmans as h_man
 import inputs as inp
 import iteman as i_man
 
-print("V 0.1.1β")
+print("V 0.1.1")
 
 parser = argparse.ArgumentParser(prog="Text-Based-Game")
-
 parser.add_argument("-d", "--debug", action="store_true")
 parser.add_argument("-c", "--custom", action="store_true")
 args = parser.parse_args()

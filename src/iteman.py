@@ -136,6 +136,11 @@ def pickup(b):
     return "item not found"
 
 def drop(b, room):
+    
+    return f"you dropped the {b}!"
+
+
+def fault_drop(b, room):
     """
     Removes the specified item from the player's inventory and adds it to the item list.
 
@@ -155,14 +160,9 @@ def drop(b, room):
             t.append(c)
             p.remove(x)
             with open("h-inv.txt", "w", encoding="utf-8") as file:
-                a = str(t)
-                t = len(str(t)) - 1
-                c = a[1:t:]
-                file.write(c)
+                file.write(a)
             with open("inv.txt", "w", encoding="utf-8") as file:
                 a = str(p)
-                t = len(str(p)) - 1
-                c = a[1:t:]
-                file.write(c)
+                file.write(a)
             return f"you dropped the {b}!"
     return "item not found"
